@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Craftsman;
 
 use App\Http\Controllers\Controller;
+use App\Models\Admin;
 use App\Models\Craftsman;
 
 class HomeController extends Controller
@@ -23,8 +24,10 @@ class HomeController extends Controller
      * @return \Illuminate\Contracts\Support\Renderable
      */
     public function index() {
-        $id = auth('craftsman')->user()->id;
-        $data = Craftsman::findOrFail($id);
-        return view('craftsman.home' , compact('data'));
+            $id = auth('craftsman')->user()->id;
+            $data = Craftsman::findOrFail($id);
+            return view('craftsman.home', compact('data'));
+
+
     }
 }

@@ -13,6 +13,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::resource('as-admin', 'App\Http\Controllers\Admin\AdminController');
+Route::resource('reports', 'App\Http\Controllers\ReportController');
+
+
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -36,7 +41,7 @@ Route::get('/test', function () {
 });
 Route::resource('category', 'App\Http\Controllers\CategoryController');
 Route::resource('crafts', 'App\Http\Controllers\CraftController');
-Route::resource('as-admin', 'App\Http\Controllers\Admin\AdminController');
+Route::resource('profile', 'App\Http\Controllers\ProfileController');
 
 //Route::get('/profile', 'App\Http\Controllers\ProfileController@inex');
 Route::get('/location/{user}', 'App\Http\Controllers\LocationController@create');
@@ -46,4 +51,6 @@ Route::get('/userLocation', 'App\Http\Controllers\LocationController@loc');
 Route::get('/current-locations/{user}', 'App\Http\Controllers\LocationController@cuttentLocaation');
 Route::delete('/location/{location}/delete', 'App\Http\Controllers\LocationController@destroy')->name('location.destroy');
 Route::get('craftsman/{craftsman}/edit', 'App\Http\Controllers\CraftsmanController@edit')->name('craftsman.eded')->middleware('auth:craftsman');
-Route::patch('craftsman/{craftsman}/update',  ['as' => 'craftsman.update', 'uses' => 'App\Http\Controllers\CraftsmanController@update'])->middleware('auth:craftsman');;
+Route::patch('craftsman/{craftsman}/update',  ['as' => 'craftsman.update', 'uses' => 'App\Http\Controllers\CraftsmanController@update'])->middleware('auth:craftsman');
+
+Route::get('profile/edit', 'App\Http\Controllers\ProfileController@edit')->name('profile.ed')->middleware('auth:admin');

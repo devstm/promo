@@ -1,26 +1,21 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
-use App\Models\Craftsman;
+use App\Models\Reports;
 use Illuminate\Http\Request;
 
-class AdminController extends Controller
+class ReportController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function __construct()
-    {
-        $this->middleware('auth:admin');
-    }
     public function index()
     {
-        $craftsmen = Craftsman::all();
-        return view('admin.craftsmen-index' , compact('craftsmen'));
+        $data = Reports::all();
+        return view('reports.reports' , compact('data'));
     }
 
     /**
@@ -30,7 +25,7 @@ class AdminController extends Controller
      */
     public function create()
     {
-        //
+        return view('reports.create');
     }
 
     /**
@@ -41,7 +36,9 @@ class AdminController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $report = new Reports();
+        $report->fill($report->only($report->getFillable()))->save();
+        return back()->with('success', 'report send successfully.');
     }
 
     /**
@@ -52,30 +49,8 @@ class AdminController extends Controller
      */
     public function show($id)
     {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
+        $data = Reports::findOrFail($id);
+        return view('report.info' , compact($data));
     }
 
     /**
@@ -86,6 +61,7 @@ class AdminController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Reports::findOrFail($id)->delete();
+        return redirect()->back()->with('success', 'report deleted successfully');
     }
 }

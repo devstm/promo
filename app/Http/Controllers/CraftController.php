@@ -76,7 +76,7 @@ class CraftController extends Controller
      */
     public function update(Request $request, Crafts $crafts)
     {
-        //
+
     }
 
     /**

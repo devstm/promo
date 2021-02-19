@@ -1,66 +1,9 @@
 @extends('layouts.craftsman')
 @section('content')
-    <div class="kt-grid__item kt-app__toggle kt-app__aside" id="kt_user_profile_aside">
-        <div class="kt-portlet kt-portlet--height-fluid-">
-            <div class="kt-portlet__body">
-                <!--begin::Widget -->
-                <div class="kt-widget kt-widget--user-profile-4">
-                    <div class="kt-widget__head">
-                        <div class="kt-widget__media">
-                            <img class="kt-widget__img kt-hidden-"
-                                 src="assets/media/users/300_21.jpg"
-                                 alt="image">
-                        </div>
-                        <div class="kt-widget__content">
-                            <div class="kt-widget__section">
-                                <div class="kt-widget__username">
-                                    {{$data->name}}
-                                </div>>
-                                <div class="kt-widget__action">
-                                    <a href="#" class="btn btn-icon btn-circle btn-label-facebook">
-                                        <i class="socicon-facebook"></i>
-                                    </a>
-                                    <a href="#" class="btn btn-icon btn-circle btn-label-twitter">
-                                        <i class="socicon-twitter"></i>
-                                    </a>
-                                    <a href="#" class="btn btn-icon btn-circle btn-label-google">
-                                        <i class="socicon-google"></i>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="kt-widget__body">
-                        <a href="/test" class="kt-widget__item kt-widget__item--active">
-                            Profile Overview
-                        </a>
-                        <a href="/location/{{$data->id}}" class="kt-widget__item">
-                            اضافة مكان عمل جديد
-                        </a>
-                        <a href="/current-locations" class="kt-widget__item">
-                            أماكن العمل الحالية
-                        </a>
-                        <a href="{{route('craftsman.eded' , $data->id)}}" class="kt-widget__item">
-                            Change Passwort
-                        </a>
-                        <a href="#" class="kt-widget__item">
-                            Email settings
-                        </a>
-                        <a href="#" class="kt-widget__item">
-                            Saved Credit Cards
-                        </a>
-                        <a href="#" class="kt-widget__item">
-                            Tax information
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <!--end::Widget -->
-        </div>
-    </div>
+
     <div class="kt-grid__item kt-grid__item--fluid kt-app__content" >
         <div class="row" >
-            <div class="col-xl-6" style="width: 65%" >
+            <div class="col-xl-6" style="width: 78%" >
                 <div class="kt-portlet">
                     <div class="kt-portlet__head">
                         <div class="kt-portlet__head-label">

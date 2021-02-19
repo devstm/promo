@@ -29,7 +29,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/craftsman';
+    protected $redirectTo = '/profile';
 
     /**
      * Create a new controller instance.
@@ -51,12 +51,12 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => ['required', 'string', 'max:255'],
-            'username' => ['required', 'string', 'max:255', 'unique:craftsmen'],
-            'address' => ['required', 'string', 'max:255'],
-            'phone' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:craftsmen'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
+//            'name' => ['required', 'string', 'max:255'],
+//            'username' => ['required', 'string', 'max:255', 'unique:craftsmen'],
+//            'address' => ['required', 'string', 'max:255'],
+//            'phone' => ['required', 'string', 'max:255'],
+//            'email' => ['required', 'string', 'email', 'max:255', 'unique:craftsmen'],
+//            'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
     }
 
@@ -76,6 +76,7 @@ class RegisterController extends Controller
             'phone' => $data['phone'],
             'address' => $data['address'],
             'password' => Hash::make($data['password']),
+            'profile_id' => 0,
         ]);
     }
 

@@ -63,4 +63,8 @@ class Craftsman extends Authenticatable
     {
         return $this->belongsToMany(Location::class);
     }
+    public function profile()
+    {
+        return $this->hasOne(Profile::class);
+    }
 }

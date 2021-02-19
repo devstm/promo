@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="ar" direction="rtl" dir="rtl">
 <head>
     <base href="">
@@ -93,8 +94,6 @@
         <div class="kt-header__topbar">
 
             <!--begin: Search -->
-
-            <!--begin: Search -->
             <div class="kt-header__topbar-item kt-header__topbar-item--search dropdown"
                  id="kt_quick_search_toggle">
                 <div class="kt-header__topbar-wrapper" data-toggle="dropdown" data-offset="10px,0px">
@@ -140,33 +139,6 @@
 										<img class="" src="{{asset('assets/media/flags/226-united-states.svg')}}"
                                              alt=""/>
 									</span>
-                </div>
-                <div
-                    class="dropdown-menu dropdown-menu-fit dropdown-menu-right dropdown-menu-anim dropdown-menu-top-unround">
-                    <ul class="kt-nav kt-margin-t-10 kt-margin-b-10">
-                        <li class="kt-nav__item kt-nav__item--active">
-                            <a href="#" class="kt-nav__link">
-                                        <span class="kt-nav__link-icon"><img
-                                                src="{{asset('assets/media/flags/226-united-states.svg')}}"
-                                                alt=""/></span>
-                                <span class="kt-nav__link-text">English</span>
-                            </a>
-                        </li>
-                        <li class="kt-nav__item">
-                            <a href="#" class="kt-nav__link">
-                                        <span class="kt-nav__link-icon"><img
-                                                src="{{asset('assets/media/flags/128-spain.svg')}}" alt=""/></span>
-                                <span class="kt-nav__link-text">Spanish</span>
-                            </a>
-                        </li>
-                        <li class="kt-nav__item">
-                            <a href="#" class="kt-nav__link">
-                                        <span class="kt-nav__link-icon"><img
-                                                src="{{asset('assets/media/flags/162-germany.svg')}}" alt=""/></span>
-                                <span class="kt-nav__link-text">German</span>
-                            </a>
-                        </li>
-                    </ul>
                 </div>
             </div>
             <div class="kt-header__topbar-item kt-header__topbar-item--user">
@@ -254,10 +226,68 @@
     <!-- end:: image -->
     <div class="kt-grid__item kt-grid__item--fluid kt-grid kt-grid--ver kt-page">
         <div class="kt-grid__item kt-grid__item--fluid kt-grid kt-grid--hor kt-wrapper" id="kt_wrapper"
-             style="margin-right: 18% ;padding: 0">
+             style="width: 80%; margin-right: 10% ; padding: 0">
             <div class="kt-content  kt-grid__item kt-grid__item--fluid kt-grid kt-grid--hor" id="kt_content">
                 <div class="kt-container  kt-container--fluid  kt-grid__item kt-grid__item--fluid">
                     <div class="kt-grid kt-grid--desktop kt-grid--ver kt-grid--ver-desktop kt-app">
+                        <div class="kt-grid__item kt-app__toggle kt-app__aside" id="kt_user_profile_aside" style="width: 22%; margin-left:10px " >
+                            <div class="kt-portlet kt-portlet--height-fluid-">
+                                <div class="kt-portlet__body" >
+                                    <!--begin::Widget -->
+                                    <div class="kt-widget kt-widget--user-profile-4" >
+                                        <div class="kt-widget__head">
+                                            <div class="kt-widget__media">
+                                                <img class="kt-widget__img kt-hidden-"
+                                                     src="/assets/media/users/300_21.jpg"
+                                                     alt="image">
+                                            </div>
+                                            <div class="kt-widget__content">
+                                                <div class="kt-widget__section">
+                                                    <div class="kt-widget__username">
+                                                        {{optional(auth('craftsman')->user())->name}}
+                                                    </div>>
+                                                    <div class="kt-widget__action">
+                                                        <a href="#" class="btn btn-icon btn-circle btn-label-facebook">
+                                                            <i class="socicon-facebook"></i>
+                                                        </a>
+                                                        <a href="#" class="btn btn-icon btn-circle btn-label-twitter">
+                                                            <i class="socicon-twitter"></i>
+                                                        </a>
+                                                        <a href="#" class="btn btn-icon btn-circle btn-label-google">
+                                                            <i class="socicon-google"></i>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="kt-widget__body">
+{{--                                            <a href="/profile/{{optional(auth('craftsman')->user())}}/edit" class="kt-widget__item kt-widget__item--active">--}}
+{{--                                                Profile Overview--}}
+{{--                                            </a>--}}
+                                            <a href="/location/{{optional(auth('craftsman')->user())->id}}" class="kt-widget__item">
+                                                اضافة مكان عمل جديد
+                                            </a>
+                                            <a href="/current-locations/{{optional(auth('craftsman')->user())->id}}" class="kt-widget__item">
+                                                أماكن العمل الحالية
+                                            </a>
+                                            <a href="{{route('profile.edit' , optional(auth('craftsman')->user())->id)}}" class="kt-widget__item">
+                                                تعديل الملف الشخصي
+                                            </a>
+                                            <a href="#" class="kt-widget__item">
+                                                Email settings
+                                            </a>
+                                            <a href="#" class="kt-widget__item">
+                                                Saved Credit Cards
+                                            </a>
+                                            <a href="#" class="kt-widget__item">
+                                                Tax information
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--end::Widget -->
+                            </div>
+                        </div>
                         @yield('content')
                     </div>
                 </div>

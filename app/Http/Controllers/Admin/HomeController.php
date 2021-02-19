@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Admin;
 
 class HomeController extends Controller
 {
@@ -22,6 +23,9 @@ class HomeController extends Controller
      * @return \Illuminate\Contracts\Support\Renderable
      */
     public function index() {
-        return view('admin.home');
+        $id = auth('admin')->user()->id;
+        $data = Admin::findOrFail($id);
+        return view('admin.home', compact('data'));
+
     }
 }
